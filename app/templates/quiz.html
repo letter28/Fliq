@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id="game" class="flex-center flex-column">
+		<div id="dashboard" class="row">
+			<div id="dashboard-text" class="row">
+				<div id="category-div" class="col-sm-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Category: </h5>
+							<p id="category-text" class="card-text">{{ category }}</p>
+						</div>
+					</div>
+				</div>
+				<div id="question-div" class="col-sm-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Question: </h5>
+							<p id="question-number" class="card-text"></p>
+						</div>
+					</div>
+				</div>
+				<div id="score-div" class="col-sm-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Score: </h5>
+							<p id="score-text" class="card-text">0</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="progress-bar-div" class="progress row">
+				<div id="progress-bar" class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" 
+				aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+		</div>
+		<h2 id="question">{{ question.question|e }}</h2>
+		<div class="choice-container hoverable">
+			<p class="choice-prefix">A</p>
+			<p class="choice-text" data-number="1">{{ question.choice_1|e }}</p>
+		</div>
+		<div class="choice-container hoverable">
+			<p class="choice-prefix">B</p>
+			<p class="choice-text" data-number="2">{{ question.choice_2|e }}</p>
+		</div>
+		<div class="choice-container hoverable">
+			<p class="choice-prefix">C</p>
+			<p class="choice-text" data-number="3">{{ question.choice_3|e }}</p>
+		</div>
+		<div class="choice-container hoverable">
+			<p class="choice-prefix">D</p>
+			<p class="choice-text" data-number="4">{{ question.choice_4|e }}</p>
+		</div>
+	</div>
+
+<script src="{{ url_for('static', filename='js/quiz.js') }}" type="text/javascript"></script>
+{% endblock %}

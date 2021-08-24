@@ -1,0 +1,35 @@
+body {background-color: #303233; color:gainsboro}
+nav {z-index: 5; height: 5vh; min-height: 40px;}
+
+#highscores-list { width: 18rem; background-color: rgba(240, 240, 240, 0.651); font-size: 0.8rem;}
+
+.flex-column { display: flex; flex-direction: column;}
+.flex-center { justify-content: center; align-items: center;}
+.justify-center {justify-content: center;}
+.hidden {display: none;}
+
+.container-center {
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0.1rem;
+}
+.container-center > * {width: 100%;}
+
+.main-title {padding-bottom: 20px;}
+#main-content {margin: 10px;}
+#category-select {margin: 10px; width: 30%;}
+
+#btn-group,
+#home-page-btn {margin: 10px;}
+
+#btn-group > a { margin: 0 10px; width: 100px;}
+
+/* Scrollbar */
+::-webkit-scrollbar {width: .45rem;}
+::-webkit-scrollbar-thumb { background-color: rgba(0, 129, 50, 0.596); border-radius: 3px;}
+::-webkit-scrollbar-track{ background: transparent;}

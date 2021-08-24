@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="">
+	<div class="flex-center flex-column">
+		<h1 id="" class="main-title text-center">
+			Fliq Quiz
+		</h1>
+		<div id="main-content" class="text-center">
+			Welcome to the web app where you're being quizzed!
+			To start, choose a category and press Play.
+		</div>
+		<select id="category-select" class="form-select" aria-label="Choose a category">
+			<option selected value="9">General knowledge</option>
+			<option value="17">Science and nature</option>
+			<option value="20">Mythology</option>
+			<option value="21">Sports</option>
+			<option value="22">Geography</option>
+			<option value="23">History</option>
+			<option value="25">Art</option>
+			<option value="27">Animals</option>
+		</select>
+		<div id="btn-group" class="">
+			<a id="play-btn" class="btn btn-primary" href="{{ url_for('index.play_quiz', cat_num=9) }}">Play</a>
+			<a class="btn btn-info" href="{{ url_for('index.highscores') }}">Highscores</a>
+		</div>
+	</div>
+</div>
+<script src="{{ url_for('static', filename='js/index.js') }}" type="text/javascript"></script>
+{% endblock %}

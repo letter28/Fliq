@@ -1,0 +1,45 @@
+<form novalidate 
+    {% if form.target %} target="{{ form.target }}" {% endif %} 
+    enctype="multipart/form-data" 
+    method="{{ form.method }}"
+    action="{{ form.url if form.url else request.url }}">
+    
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type not in ('hidden', 'submit') and not field.widget.hide %}
+        <div class="form-group">
+            {{ field.label }}
+            <div class="mb-3">
+                {% if field.widget.input_type == 'checkbox' %}
+                    <label>{{ field(class='form-check-input', tabindex=1) }}</label>
+                {% elif field.widget.input_type == 'file' %}
+                    {{ field(tabindex=1) }}
+                {% elif field.widget.input_type == 'radio' %}
+                    {% for rad in field %}
+                        <div class="radio">
+                            <label>
+                                {{ rad }}
+                                {{ rad.label.text }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{ field(class='form-control', tabindex=1) }}
+                {% endif %}
+
+                {% if field.description %}
+                    <small class="help-inline" >{{ field.description|safe }}</small>
+                {% endif %}
+
+                {% if field.errors %}
+                    <small class="help-inline" >{{ field.errors[0] }}</small>
+                {% endif %}
+            </div>    
+        </div>
+    {% endfor %}
+
+    {% if form.enabled|default(True) %}
+        <div class="form-actions text-center">
+            <button type="submit" class="{{ css_class if css_class else 'btn btn-primary col-10 mt-2'}}" onclick="onSaveScore()">Submit</button>
+        </div>
+    {% endif %}
+</form>

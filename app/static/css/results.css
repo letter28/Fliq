@@ -1,0 +1,9 @@
+#results-main { width: 50%; }
+#username-input { width: 10rem; margin: 1rem 0;}
+#final-score-text { font-size: 5rem; color: teal;}
+#category-result-text { font-size: 2rem; color: teal; }
+
+#save-score-btn,
+#home-page-btn { width: 10rem; }
+
+#score-tag { font-size: 1.2rem; }

@@ -1,0 +1,50 @@
+[
+    {
+        "question": "Inside which HTML element do we put the JavaScript?",
+        "choice1": "<script>",
+        "choice2": "<javascript>",
+        "choice3": "<js>",
+        "choice4": "<scripting>",
+        "answer": 1
+    },
+    {
+        "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+        "choice1": "<script href='xxx.js'>",
+        "choice2": "<script name='xxx.js'>",
+        "choice3": "<script src='xxx.js'>",
+        "choice4": "<script file='xxx.js'>",
+        "answer": 3
+    },
+    {
+        "question": "How do you write 'Hello World' in an alert box?",
+        "choice1": "msgBox('Hello World');",
+        "choice2": "alertBox('Hello World');",
+        "choice3": "msg('Hello World');",
+        "choice4": "alert('Hello World');",
+        "answer": 4
+    },
+    {
+        "question": "In tennis, what piece of fruit is found at the top of the men's Wimbledon trophy?",
+        "choice1": "Pineapple",
+        "choice2": "Pear",
+        "choice3": "Melon",
+        "choice4": "Cherry",
+        "answer": 1
+    },
+    {
+        "question": "Which vitamin is the only one that you will not find in an egg?",
+        "choice1": "Vitamin A",
+        "choice2": "Vitamin B",
+        "choice3": "Vitamin C",
+        "choice4": "Vitamin D",
+        "answer": 3
+    },
+    {
+        "question": "Which fish is the main ingredient of Scotch Woodcock?",
+        "choice1": "Herring",
+        "choice2": "Anchovy",
+        "choice3": "Bass",
+        "choice4": "Tuna",
+        "answer": 2
+    }
+]
