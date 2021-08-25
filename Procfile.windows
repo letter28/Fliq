@@ -1,1 +1,1 @@
-web: python app/fliq.py create_db python app/fliq.py runserver
+web: python fliq.py runserver
