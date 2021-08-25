@@ -1,1 +1,1 @@
-worker: python app/fliq.py runserver
+web: python app/fliq.py runserver
