@@ -1,21 +1,19 @@
-"""Configuration variables"""
+"""Configurations"""
 import os
 
 
-ENV = 'development'
-DEBUG = True
-TESTING = False
-SECRET_KEY = 'hakunamatata'
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-SERVER_NAME = None
-APPLICATION_ROOT = '/'
-MAX_CONTENT_LENGTH = None
-SEND_FILE_MAX_AGE_DEFAULT = None
-EXPLAIN_TEMPLATE_LOADING = False
-PREFERRED_URL_SCHEME = 'https'
-JSON_AS_ASCII = True
-JSONIFY_PRETTYPRINT_REGULAR = True
-JSONIFY_MIMETYPE = 'application/json'
-#TEMPLATES_AUTO_RELOAD = 10
-#MAX_COOKIE_SIZE = 4093
+class BaseConfig():
+    DEBUG = True
+    SECRET_KEY = 'hakunamatata'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class ProductionConfig(BaseConfig):
+    DEBUG = False
+    ENV = 'production'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+
+class DevelopmentConfig(BaseConfig):
+    ENV = 'development'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///fliq.db'

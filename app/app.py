@@ -1,10 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
-
-db = SQLAlchemy()
-migrate = Migrate()
+from constants import STATIC_URL_PATH
 
 
 def register_routes(app):
@@ -15,18 +12,11 @@ def register_routes(app):
     app.register_blueprint(api_blueprint)
 
 
-def create_flask_app():
-    app = Flask(__name__)
-    app.config.from_pyfile('config.py')
+app = Flask(__name__, static_url_path=STATIC_URL_PATH)
+app.config.from_object('config.DevelopmentConfig')
 
-    print(app.config)
+db = SQLAlchemy(app)
 
-    db.init_app(app)
-    migrate.init_app(app, db)
-
-    with app.app_context():
-        from database import models
-        register_routes(app)
-
-
-    return app
+with app.app_context():
+    import models
+    register_routes(app)

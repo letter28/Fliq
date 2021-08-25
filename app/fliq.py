@@ -1,4 +1,22 @@
+from argparse import ArgumentParser
+
+
+
+parser = ArgumentParser()
+parser.add_argument('action', choices=['runserver', 'create_db'])
+parser_args = parser.parse_args()
+
 if __name__ == '__main__':
-    from app import create_flask_app
-    app = create_flask_app()
-    app.run()
+    if parser_args.action:
+        if parser_args.action == 'runserver':
+            from app import app
+            from utils import print_green
+            print_green('Starting the app...')
+            app.run()
+
+        elif parser_args.action == 'create_db':
+            from app import db
+            from utils import print_green
+            print_green('Creating the tables in the database...')
+            db.create_all()
+            print_green('Done!')

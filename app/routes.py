@@ -1,11 +1,11 @@
-from flask import render_template, redirect, request, Blueprint, url_for, flash, jsonify
+from flask import render_template, redirect, request, Blueprint, url_for, flash
 from datetime import datetime
 
-from utils import fetch_api_data, parse_and_save_questions, get_user_highscores
-from open_trivia import OPEN_TRIVIA_URL, categories
+from constants import OPEN_TRIVIA_URL, categories
 from forms import SaveHighscoreForm
-from database.db_session import db_session
-from database.models import UserHighscores, Users
+from app import db
+from models import UserHighscores, Users
+from utils import fetch_api_data, parse_and_save_questions, get_user_highscores
 
 
 app_blueprint = Blueprint('index', __name__)
@@ -25,6 +25,7 @@ def play_quiz(cat_num):
             parse_and_save_questions(resp)
 
             return render_template('quiz.html', question={}, category=category)
+    return redirect('/')
 
 
 @app_blueprint.route('/highscores', methods=['GET', 'POST'])
@@ -49,8 +50,8 @@ def save_score():
 
             if not user:
                 user = Users(username=username)
-                db_session.add(user)
-                db_session.commit()
+                db.session.add(user)
+                db.session.commit()
 
             user_id = user.id
 
@@ -62,8 +63,8 @@ def save_score():
                 date_of_score=datetime.now()
             )
 
-            db_session.add(new_score)
-            db_session.commit()
+            db.session.add(new_score)
+            db.session.commit()
 
             return redirect(url_for('index.highscores'))
 

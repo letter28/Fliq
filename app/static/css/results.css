@@ -1,5 +1,6 @@
 #results-main { width: 50%; }
 #username-input { width: 10rem; margin: 1rem 0;}
+.message-input-area {height: 7rem;}
 #final-score-text { font-size: 5rem; color: teal;}
 #category-result-text { font-size: 2rem; color: teal; }
 

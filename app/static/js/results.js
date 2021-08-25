@@ -1,6 +1,6 @@
 const formFieldsEl = document.getElementsByClassName('form-control');
 const usernameInputEl = formFieldsEl[0];
-const usernameMsgEl = formFieldsEl[1];
+const developerMsgEl = formFieldsEl[1];
 const saveScoreBtn = document.getElementsByClassName('btn btn-primary col-10 mt-2')[0];
 const finalScoreEl = document.getElementById('final-score-text');
 const categoryEl = document.getElementById('category-result-text');
@@ -9,6 +9,7 @@ finalScoreEl.innerText = localStorage.getItem('finalScore');
 categoryEl.innerText = localStorage.getItem('category');
 
 saveScoreBtn.classList.add('disabled');
+developerMsgEl.classList.add('message-input-area');
 
 usernameInputEl.addEventListener('keyup', () => {
     usernameInputEl.value ? saveScoreBtn.classList.remove('disabled') : saveScoreBtn.classList.add('disabled');
@@ -31,7 +32,7 @@ var onSaveScore = function() {
     let scoreData = {
         score: localStorage.getItem('finalScore'),
         category: localStorage.getItem('category'),
-        message: usernameMsgEl.value,
+        message: developerMsgEl.value,
         username: usernameInputEl.value,
         date_of_score: '2021-07-20 19:55:00'
     };
@@ -41,6 +42,6 @@ var onSaveScore = function() {
         url: "/save-score",
         data: JSON.stringify(scoreData),
         contentType: "application/json",
-        dataType: 'json' 
+        dataType: 'json'
       });
 };

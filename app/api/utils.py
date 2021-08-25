@@ -1,7 +1,7 @@
 from flask import Response, json
 from sqlalchemy.orm import class_mapper
 
-from database.models import Users, UserHighscores, QuizQuestions
+from models import Users, UserHighscores, QuizQuestions
 
 
 def json_response(data):
@@ -21,9 +21,14 @@ def get_all_users():
 
 
 def get_all_highscores(limit=None):
-    highscores = UserHighscores.query.order_by(UserHighscores.score.desc(),
-        UserHighscores.date_of_score.asc()).join(Users, Users.id == UserHighscores.user_id).limit(limit).all()
-    
+    highscores = UserHighscores.query.order_by(
+                    UserHighscores.score.desc(),
+                    UserHighscores.date_of_score.asc()
+                ).join(
+                    Users,
+                    Users.id == UserHighscores.user_id
+                ).limit(limit).all()
+
     highscores = dict(highscores=[sql_model_to_json(score, hybrid_props=['username']) for score in highscores])
     return json_response(highscores)
 
