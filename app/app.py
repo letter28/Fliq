@@ -14,7 +14,7 @@ def register_routes(app):
 
 app = Flask(__name__, static_url_path=STATIC_URL_PATH)
 print('App created')
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('config.ProductionConfig')
 print('App config: ', app.config)
 
 db = SQLAlchemy(app)

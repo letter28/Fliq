@@ -5,6 +5,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class BaseConfig():
+    APPLICATION_ROOT = None
     DEBUG = True
     SECRET_KEY = 'hakunamatata'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -18,4 +19,4 @@ class ProductionConfig(BaseConfig):
 
 class DevelopmentConfig(BaseConfig):
     ENV = 'development'
-    SQLALCHEMY_DATABASE_URI =  'sqlite:///' + os.path.join(basedir, 'fliq.db')
+    SQLALCHEMY_DATABASE_URI =  'sqlite://' + os.path.join(basedir, 'fliq.db')
