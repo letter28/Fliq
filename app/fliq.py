@@ -12,7 +12,7 @@ if __name__ == '__main__':
             from app import app
             from utils import print_green
             print_green('Starting the app...')
-            app.run()
+            app.run(host='0.0.0.0')
 
         elif parser_args.action == 'create_db':
             from app import db
