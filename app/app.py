@@ -13,10 +13,15 @@ def register_routes(app):
 
 
 app = Flask(__name__, static_url_path=STATIC_URL_PATH)
+print('App created')
 app.config.from_object('config.DevelopmentConfig')
+print('App config: ', app.config)
 
 db = SQLAlchemy(app)
+print('DB created and bound to app')
 
 with app.app_context():
     import models
+    print('Models imported')
     register_routes(app)
+    print('Routes registered')
