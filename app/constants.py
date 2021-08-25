@@ -1,5 +1,5 @@
 TEMPLATE_FOLDER = '../templates/'
-STATIC_URL_PATH = None
+STATIC_URL_PATH = '/static'
 
 DATABASE = 'fliq'
 PORT = 5432

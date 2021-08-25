@@ -1,10 +1,11 @@
+import os
 import random
 import math
 import requests
 import json
 from html import unescape
 
-from constants import BCOLORS
+from constants import BCOLORS, STATIC_URL_PATH
 from models import QuizQuestions, UserHighscores
 
 def get_user_highscores(limit=10):
@@ -51,7 +52,7 @@ def parse_and_save_questions(response_text):
                                     )
             new_questions.append(new_question)
 
-        with open('static/resources/questions.json', 'w', encoding='ascii') as fout:
+        with open(os.path.join(STATIC_URL_PATH, 'resources/questions.json'), 'w', encoding='ascii') as fout:
             json.dump(new_questions, fout)
 
 
