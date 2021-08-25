@@ -1,1 +1,1 @@
-web: python app/fliq.py runserver
+web: python app/fliq.py runserver 0.0.0.0:5000
