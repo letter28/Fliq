@@ -14,6 +14,7 @@ class BaseConfig():
 class ProductionConfig(BaseConfig):
     DEBUG = False
     ENV = 'production'
+    SERVER_NAME = 'fliq-quiz.herokuapp.com'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', '').replace('postgres://', 'postgresql://')
 
 
