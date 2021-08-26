@@ -3,7 +3,7 @@ import os
 TEMPLATE_FOLDER = '../templates/'
 STATIC_URL_PATH = '/static'
 
-HOST = os.environ.get('HOST')
+HOST = os.environ.get('HOST', '0.0.0.0')
 PORT = os.environ.get('PORT')
 
 DB_NAME = os.environ.get('DB_NAME')

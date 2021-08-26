@@ -7,6 +7,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class BaseConfig():
     APPLICATION_ROOT = None
     DEBUG = True
+    SERVER_NAME = os.environ.get('SERVER_NAME', '0.0.0.0')
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
