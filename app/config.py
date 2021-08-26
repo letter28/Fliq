@@ -8,13 +8,13 @@ class BaseConfig():
     APPLICATION_ROOT = None
     DEBUG = True
     SECRET_KEY = 'hakunamatata'
+    SERVER_NAME = '0.0.0.0'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
     ENV = 'production'
-    SERVER_NAME = 'fliq-quiz.herokuapp.com'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', '').replace('postgres://', 'postgresql://')
 
 

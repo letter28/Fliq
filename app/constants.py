@@ -1,8 +1,10 @@
+import os
+
 TEMPLATE_FOLDER = '../templates/'
 STATIC_URL_PATH = '/static'
 
 DATABASE = 'fliq'
-PORT = 5432
+PORT = os.environ.get('PORT')
 USER = 'postgres'
 PASSWORD = 'postgres'
 HOST = 'localhost'
