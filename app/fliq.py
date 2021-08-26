@@ -8,7 +8,7 @@ parser_args = parser.parse_args()
 if __name__ == '__main__':
     if parser_args.action:
         if parser_args.action == 'runserver':
-            from constants import PORT, HOST
+            from constants import HOST
             from app import app
             from utils import print_green
             print_green('Starting the app...')

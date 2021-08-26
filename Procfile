@@ -1,1 +1,1 @@
-web: python app/fliq.py runserver
+web: gunicorn app/fliq:app runserver
