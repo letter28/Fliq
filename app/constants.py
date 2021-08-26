@@ -3,12 +3,15 @@ import os
 TEMPLATE_FOLDER = '../templates/'
 STATIC_URL_PATH = '/static'
 
-DATABASE = 'fliq'
+HOST = os.environ.get('HOST')
 PORT = os.environ.get('PORT')
-USER = 'postgres'
-PASSWORD = 'postgres'
-HOST = 'localhost'
-SCHEMA = 'main_quiz'
+
+DB_NAME = os.environ.get('DB_NAME')
+DB_USER = os.environ.get('DB_USER')
+DB_HOST = os.environ.get('DB_HOST')
+DB_PORT = os.environ.get('DB_PORT')
+DB_PSWRD = os.environ.get('DB_PSWRD')
+DB_SCHEMA = os.environ.get('DB_SCHEMA')
 
 OPEN_TRIVIA_URL = 'https://opentdb.com/api.php?amount=10&category=%s&type=multiple'
 
