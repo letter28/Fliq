@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-from constants import STATIC_URL_PATH
+from constants import STATIC_URL_PATH, CONFIG
 
 
 def register_routes(app):
@@ -13,7 +13,7 @@ def register_routes(app):
 
 
 app = Flask(__name__, static_url_path=STATIC_URL_PATH)
-app.config.from_object('config.ProductionConfig')
+app.config.from_object(CONFIG)
 print('App config: ', app.config)
 
 db = SQLAlchemy(app)

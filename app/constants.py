@@ -1,10 +1,12 @@
 import os
 
+CONFIG = os.environ.get('APP_CONFIG', 'config.DevelopmentConfig')
+
 TEMPLATE_FOLDER = '../templates/'
 STATIC_URL_PATH = '/static'
 
 HOST = os.environ.get('HOST', '0.0.0.0')
-PORT = os.environ.get('PORT')
+PORT = os.environ.get('PORT', 5000)
 
 DB_NAME = os.environ.get('DB_NAME')
 DB_USER = os.environ.get('DB_USER')
