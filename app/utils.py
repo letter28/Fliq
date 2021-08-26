@@ -1,12 +1,12 @@
-import os
 import random
 import math
 import requests
 import json
 from html import unescape
 
-from constants import BCOLORS, STATIC_URL_PATH
+from constants import BCOLORS
 from models import QuizQuestions, UserHighscores
+
 
 def get_user_highscores(limit=10):
     """Queries rows from the table quiz_highscores"""
